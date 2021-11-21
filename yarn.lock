@@ -1527,10 +1527,10 @@
   resolved "https://registry.yarnpkg.com/@react-spring/types/-/types-9.3.0.tgz#54ec58ca40414984209c8baa75fddd394f9e2949"
   integrity sha512-q4cDr2RSPblXMD3Rxvk6qcC7nmhhfV2izEBP06hb8ZCXznA6qJirG3RMpi29kBtEQiw1lWR59hAXKhauaPtbOA==
 
-"@react-three/drei@5.1.6":
-  version "5.1.6"
-  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-5.1.6.tgz#c0ce4eba6a2aa21758de5ecc6c69b50a43f97e06"
-  integrity sha512-+kRo1a4YXQlxvFotANMPr97qhnF256kptjnRNXrntJN0hs14E4eTtUd1R0h4KSuzxraGCUy/cllxnB73SVAgQA==
+"@react-three/drei@5.1.5-beta.1":
+  version "5.1.5-beta.1"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-5.1.5-beta.1.tgz#2ed51d6db2e6c7dccb406ec4a999f4c92f1202b7"
+  integrity sha512-nszuiYktswfQCUIi0EOXhqiq6pEHR9ZQC9HltiXgE7N/ihg9GKtInb5S0Gua3tZfuS3ofB3j5gcrSWWmvdrVrQ==
   dependencies:
     "@babel/runtime" "^7.11.2"
     blob-polyfill "^5.0.20210201"
@@ -1546,10 +1546,10 @@
     utility-types "^3.10.0"
     zustand "^3.5.1"
 
-"@react-three/fiber@6.2.0":
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-6.2.0.tgz#6aa1fb3884202ced8b4c260c43be25a3fdbcff6d"
-  integrity sha512-vYF/XUtGir/yKdV4e1ILxZ1/oRSyU6JZ6H4u1z9ayg6g+CkR0nLaWPXL7mYbpLwAmIoI06eeiBjx28Hq2XvlkA==
+"@react-three/fiber@6.0.13":
+  version "6.0.13"
+  resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-6.0.13.tgz#db2931dc63ae2abd7af6beb0809bce15b7e81cb2"
+  integrity sha512-kX+HlYNHImhyx8gOJ34fB6Jmyg8HgJt4AsQlwURxDW45Zrq6K0lksPGypcOcExl0ND7zOHoiLx53OldjH3Fw4w==
   dependencies:
     "@babel/runtime" "^7.13.10"
     react-merge-refs "^1.1.0"
@@ -1560,7 +1560,14 @@
     scheduler "^0.20.2"
     use-asset "^1.0.4"
     utility-types "^3.10.0"
-    zustand "^3.5.1"
+    zustand "^3.3.3"
+
+"@react-three/lightmap@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@react-three/lightmap/-/lightmap-0.0.1.tgz#31f6ef3c08bef41a46e1dc5800672afae3877e39"
+  integrity sha512-8zqGX/1BQY5RXvA2NtjUX6pfrtz9dhHk+G0jW9mXo7BdQqNktW8PZdo9HH1liPW/36z6I2BH1XeC48PYoQF7QQ==
+  dependencies:
+    potpack "^1.0.1"
 
 "@react-three/postprocessing@2.0.5":
   version "2.0.5"
@@ -3320,9 +3327,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001181:
-  version "1.0.30001191"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001191.tgz#bacb432b6701f690c8c5f7c680166b9a9f0843d9"
-  integrity sha512-xJJqzyd+7GCJXkcoBiQ1GuxEiOBCLQ0aVW9HMekifZsAVGdj5eJ4mFB9fEhSHipq9IOk/QXFJUiIr9lZT+EsGw==
+  version "1.0.30001282"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001282.tgz"
+  integrity sha512-YhF/hG6nqBEllymSIjLtR2iWDDnChvhnVJqp+vloyt2tEHFG1yBR+ac2B/rOw0qOK0m0lEXU2dv4E/sMk5P9Kg==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -4268,9 +4275,9 @@ destroy@~1.0.4:
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
 
 detect-gpu@^3.0.0:
-  version "3.1.26"
-  resolved "https://registry.yarnpkg.com/detect-gpu/-/detect-gpu-3.1.26.tgz#c3f7c365c6e57e9e2035371d5d5467b1eba8e4b5"
-  integrity sha512-PeJ8nFEQjyCO18+us3oVki/2o71z3k3NwMtMw037LI04rbaqaGb+ELXr/7D6fJ49h3y9D8fG3qvnxkHCa8otdQ==
+  version "3.1.27"
+  resolved "https://registry.yarnpkg.com/detect-gpu/-/detect-gpu-3.1.27.tgz#d6c278045d7ec69bb00966e9ba1c17f619855b60"
+  integrity sha512-uIZUG25pt0ArIJjFEBYYzigoWe4gyEa4MzHpi9wXIVJw9LvznSHimvfjchOQJ6oJ55oMlEIt3WJ+Mt58nDm8qg==
   dependencies:
     webgl-constants "^1.1.1"
 
@@ -12106,7 +12113,7 @@ zstddec@^0.0.2:
   resolved "https://registry.yarnpkg.com/zstddec/-/zstddec-0.0.2.tgz#57e2f28dd1ff56b750e07d158a43f0611ad9eeb4"
   integrity sha512-DCo0oxvcvOTGP/f5FA6tz2Z6wF+FIcEApSTu0zV5sQgn9hoT5lZ9YRAKUraxt9oP7l4e8TnNdi8IZTCX6WCkwA==
 
-zustand@^3.5.1:
+zustand@^3.3.3, zustand@^3.5.1:
   version "3.6.5"
   resolved "https://registry.yarnpkg.com/zustand/-/zustand-3.6.5.tgz#42a459397907d6bf0e2375351394733b2f83ee44"
   integrity sha512-/WfLJuXiEJimt61KGMHebrFBwckkCHGhAgVXTgPQHl6IMzjqm6MREb1OnDSnCRiSmRdhgdFCctceg6tSm79hiw==

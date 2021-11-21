@@ -5,6 +5,7 @@ import { OrbitControls, Sky } from '@react-three/drei'
 import { Water } from 'three-stdlib'
 import { EffectComposer, SSAO, Bloom } from '@react-three/postprocessing'
 import { KernelSize, BlendFunction } from 'postprocessing'
+import { Lightmap } from '@react-three/lightmap'
 
 import Rikers from '../Components3D/Rikers'
 import Controls from '../Components3D/Controls'
@@ -68,24 +69,21 @@ export default function Home() {
   return (
     <Canvas shadows camera={{ position: [0, 5, 100], fov: 55, near: 1, far: 20000 }}>
       <color attach="background" args={['black']}/>
-      {/* <fog attach="fog" args={['black', 0.1, 750]} /> */}
-      {/* <pointLight position={[0, 0, 0]} intensity={0.01} color={'#0074ff'} /> */}
-      <pointLight position={[100, 100, 100]} intensity={0.5}/>
-      <pointLight position={[-100, -100, -100]} intensity={0.5} />
+      <pointLight position={[100, 100, 100]} intensity={0.2}/>
+      <pointLight position={[-100, -100, -100]} intensity={0.2} />
       <ambientLight intensity={0.4} />
       <directionalLight intensity={0.1} position={[0, 10, 0]} color="red" distance={5} />
       <spotLight intensity={5} position={[0, 1, 0]} angle={0.2} penumbra={1} castShadow shadow-mapSize={[2048, 2048]} />
       <Suspense fallback={null}>
-        <Ocean />
-        {/* <Box /> */}
-        {/* <Shirt scale={[1, 1, 1]} posirion={[0, 0, 0]} /> */}
-        <Rikers />
-        <Pin scale={[150, 150, 150]} position={[-55, 30, -46]}/>
-        <Pin scale={[150, 150, 150]} position={[55, 20, -46]} rotation={[0.5, 0.3, 0]}/>
-        <Pin scale={[150, 150, 150]} position={[5, 20, -6]} rotation={[0.5, 0.3, 0]}/>
-        {/* Hello */}
-        <Effects />
-        <Controls />
+        <Lightmap>
+          <Ocean />
+          <Rikers />
+          <Pin scale={[150, 150, 150]} position={[-55, 30, -46]}/>
+          <Pin scale={[150, 150, 150]} position={[55, 20, -46]} rotation={[0.5, 0.3, 0]}/>
+          <Pin scale={[150, 150, 150]} position={[5, 20, -6]} rotation={[0.5, 0.3, 0]}/>
+          <Effects />
+          <Controls />
+        </Lightmap>
       </Suspense>
       <Sky scale={10000} sunPosition={[500, 150, -1000]} turbidity={0.01} />
       <OrbitControls />
