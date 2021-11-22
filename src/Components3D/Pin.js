@@ -6,24 +6,33 @@ source: https://sketchfab.com/models/47512c994e70431d853a9e3dcaa3baba
 title: Pin for 3D clothing
 */
 
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useSpring } from '@react-spring/core';
+import { a } from '@react-spring/three';
 
 export default function Pin({ ...props }) {
+  const [expand, setExpand] = useState(false);
+  const animatedProps = useSpring({
+    hovered: expand ? [220, 220, 220] : [150, 150, 150]
+  });
   const group = useRef()
   const { nodes, materials } = useGLTF('/Pin.gltf')
   return (
-    <group 
+    <a.group 
       ref={group} 
       {...props} 
       dispose={null} 
       receiveShadow
       castShadow
+      scale={animatedProps.hovered}
+      onPointerOver={() => setExpand(true)}
+      onPointerOut={() => setExpand(false)}
     >
       <group rotation={[-Math.PI / 8, 0, 0]} >
         <mesh geometry={nodes.mesh_0.geometry} material={materials.None} />
       </group>
-    </group>
+    </a.group>
   )
 }
 

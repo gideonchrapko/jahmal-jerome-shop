@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import React, { Suspense, useRef, useMemo } from 'react'
+import React, { Suspense, useRef, useMemo, useState } from 'react'
 import { Canvas, extend, useThree, useLoader, useFrame } from '@react-three/fiber'
 import { OrbitControls, Sky } from '@react-three/drei'
 import { Water } from 'three-stdlib'
@@ -67,9 +67,8 @@ function Effects() {
 
 export default function Home() {
   return (
-    <div>
-      <h1>Hello</h1>
-    <Canvas shadows camera={{ position: [0, 5, 100], fov: 55, near: 1, far: 20000 }}>
+    // <div>
+    <Canvas receiveShadow castShadow camera={{ position: [0, 5, 100], fov: 55, near: 1, far: 20000 }}>
       <color attach="background" args={['black']}/>
       <pointLight position={[100, 100, 100]} intensity={0.2}/>
       <pointLight position={[-100, -100, -100]} intensity={0.2} />
@@ -80,9 +79,32 @@ export default function Home() {
         {/* <Lightmap> */}
           <Ocean />
           <Rikers />
-          <Pin scale={[150, 150, 150]} position={[-55, 30, -46]}/>
-          <Pin scale={[150, 150, 150]} position={[55, 20, -46]} rotation={[0.5, 0.3, 0]}/>
-          <Pin scale={[150, 150, 150]} position={[5, 20, -6]} rotation={[0.5, 0.3, 0]}/>
+            <Pin 
+              // scale={[150, 150, 150]} 
+              position={[-55, 16, -46]}
+              // scale={animatedProps.hovered}
+              // onPointerOver={() => setExpand(true)}
+              // onPointerOut={() => setExpand(false)}
+              onPointerDown={() => window.appHistory.push("/shop")}
+            />
+            <Pin 
+              // scale={[150, 150, 150]} 
+              position={[55, 20, -46]} 
+              rotation={[0.5, 0.3, 0]}
+              // scale={animatedProps.hovered}
+              // onPointerOver={() => setExpand(true)}
+              // onPointerOut={() => setExpand(false)}
+              onPointerDown={() => window.appHistory.push("/gallery")}
+            />
+            <Pin 
+              // scale={[150, 150, 150]} 
+              position={[5, 20, -6]} 
+              rotation={[0.5, 0.3, 0]}
+              // scale={animatedProps.hovered}
+              // onPointerOver={() => setExpand(true)}
+              // onPointerOut={() => setExpand(false)}
+              onPointerDown={() => window.appHistory.push("/contact")}
+            />
           <Effects />
           <Controls />
           {/* Hello */}
@@ -91,6 +113,6 @@ export default function Home() {
       <Sky scale={10000} sunPosition={[500, 150, -1000]} turbidity={0.01} />
       <OrbitControls />
     </Canvas>
-    </div>
+    // </div>
   )
 }
