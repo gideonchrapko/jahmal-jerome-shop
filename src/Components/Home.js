@@ -71,38 +71,26 @@ export default function Home() {
     <Canvas receiveShadow castShadow camera={{ position: [0, 5, 100], fov: 55, near: 1, far: 20000 }}>
       <color attach="background" args={['black']}/>
       <pointLight position={[100, 100, 100]} intensity={0.2}/>
-      <pointLight position={[-100, -100, -100]} intensity={0.2} />
+      <pointLight position={[-100, -100, -100]} intensity={0.5}/>
       <ambientLight intensity={0.4} />
-      <directionalLight intensity={0.1} position={[0, 10, 0]} color="red" distance={5} />
+      {/* <directionalLight intensity={0.1} position={[0, 10, 0]} color="red" distance={5} /> */}
       <spotLight intensity={5} position={[0, 1, 0]} angle={0.2} penumbra={1} castShadow shadow-mapSize={[2048, 2048]} />
       <Suspense fallback={null}>
         {/* <Lightmap> */}
           <Ocean />
           <Rikers />
             <Pin 
-              // scale={[150, 150, 150]} 
               position={[-55, 16, -46]}
-              // scale={animatedProps.hovered}
-              // onPointerOver={() => setExpand(true)}
-              // onPointerOut={() => setExpand(false)}
               onPointerDown={() => window.appHistory.push("/shop")}
             />
             <Pin 
-              // scale={[150, 150, 150]} 
               position={[55, 20, -46]} 
               rotation={[0.5, 0.3, 0]}
-              // scale={animatedProps.hovered}
-              // onPointerOver={() => setExpand(true)}
-              // onPointerOut={() => setExpand(false)}
               onPointerDown={() => window.appHistory.push("/gallery")}
             />
             <Pin 
-              // scale={[150, 150, 150]} 
               position={[5, 20, -6]} 
               rotation={[0.5, 0.3, 0]}
-              // scale={animatedProps.hovered}
-              // onPointerOver={() => setExpand(true)}
-              // onPointerOut={() => setExpand(false)}
               onPointerDown={() => window.appHistory.push("/contact")}
             />
           <Effects />
