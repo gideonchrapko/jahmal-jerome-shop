@@ -67,6 +67,8 @@ function Effects() {
 
 export default function Home() {
   return (
+    <div>
+      <h1>Hello</h1>
     <Canvas shadows camera={{ position: [0, 5, 100], fov: 55, near: 1, far: 20000 }}>
       <color attach="background" args={['black']}/>
       <pointLight position={[100, 100, 100]} intensity={0.2}/>
@@ -89,5 +91,6 @@ export default function Home() {
       <Sky scale={10000} sunPosition={[500, 150, -1000]} turbidity={0.01} />
       <OrbitControls />
     </Canvas>
+    </div>
   )
 }
