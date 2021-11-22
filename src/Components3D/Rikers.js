@@ -56,6 +56,7 @@ export default function Rikers({ ...props }) {
         rotation={[0, 0, Math.PI / 2]}
         scale={[0.1, 0.1, 0.1]}
       /> */}
+      {/* hello */}
     </group>
   )
 }
