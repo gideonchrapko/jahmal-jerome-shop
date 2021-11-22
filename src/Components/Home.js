@@ -75,7 +75,7 @@ export default function Home() {
       <directionalLight intensity={0.1} position={[0, 10, 0]} color="red" distance={5} />
       <spotLight intensity={5} position={[0, 1, 0]} angle={0.2} penumbra={1} castShadow shadow-mapSize={[2048, 2048]} />
       <Suspense fallback={null}>
-        <Lightmap>
+        {/* <Lightmap> */}
           <Ocean />
           <Rikers />
           <Pin scale={[150, 150, 150]} position={[-55, 30, -46]}/>
@@ -83,7 +83,8 @@ export default function Home() {
           <Pin scale={[150, 150, 150]} position={[5, 20, -6]} rotation={[0.5, 0.3, 0]}/>
           <Effects />
           <Controls />
-        </Lightmap>
+          {/* Hello */}
+        {/* </Lightmap> */}
       </Suspense>
       <Sky scale={10000} sunPosition={[500, 150, -1000]} turbidity={0.01} />
       <OrbitControls />
