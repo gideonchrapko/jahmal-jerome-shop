@@ -14,23 +14,20 @@ import { a } from '@react-spring/three';
 export default function Pin({ ...props }) {
   const [expand, setExpand] = useState(false);
   const animatedProps = useSpring({
-    hovered: expand ? [-55, 21, -46] : [-55, 16, -46]
+    hovered: expand ? [220, 220, 220] : [150, 150, 150]
   });
-  
   const group = useRef()
   const { nodes, materials } = useGLTF('/Pin.gltf')
   return (
     <a.group 
-      onPointerUp={() => window.appHistory.push("/shop")}
-      // position={[-55, 16, -46]}
-      position={animatedProps.hovered}
+      rotation={[0.5, 0.3, 0]}
+      position={[55, 20, -46]} 
       ref={group} 
       {...props} 
       dispose={null} 
       receiveShadow
       castShadow
-      // scale={animatedProps.hovered}
-      scale={[150, 150, 150]}
+      scale={animatedProps.hovered}
       onPointerOver={() => setExpand(true)}
       onPointerOut={() => setExpand(false)}
     >

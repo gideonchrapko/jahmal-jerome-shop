@@ -7,9 +7,11 @@ import { EffectComposer, SSAO, Bloom } from '@react-three/postprocessing'
 import { KernelSize, BlendFunction } from 'postprocessing'
 import { Lightmap } from '@react-three/lightmap'
 
-import Rikers from '../Components3D/Rikers'
-import Controls from '../Components3D/Controls'
-import Pin from '../Components3D/Pin'
+import Rikers from '../Components3D/Rikers';
+import Controls from '../Components3D/Controls';
+import Pin from '../Components3D/Pin';
+import Pin1 from '../Components3D/Pin1';
+import Pin2 from '../Components3D/Pin2';
 
 extend({ Water })
 
@@ -79,19 +81,12 @@ export default function Home() {
         {/* <Lightmap> */}
           <Ocean />
           <Rikers />
-            <Pin 
-              position={[-55, 16, -46]}
-              onPointerDown={() => window.appHistory.push("/shop")}
+            <Pin />
+            <Pin1
+              onPointerUp={() => window.appHistory.push("/gallery")}
             />
-            <Pin 
-              position={[55, 20, -46]} 
-              rotation={[0.5, 0.3, 0]}
-              onPointerDown={() => window.appHistory.push("/gallery")}
-            />
-            <Pin 
-              position={[5, 20, -6]} 
-              rotation={[0.5, 0.3, 0]}
-              onPointerDown={() => window.appHistory.push("/contact")}
+            <Pin2
+              onPointerUp={() => window.appHistory.push("/contact")}
             />
           <Effects />
           <Controls />
