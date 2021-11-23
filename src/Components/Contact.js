@@ -4,6 +4,8 @@ const Contact = () => {
     return (
         <div>
             Contact
+            <div id="product-component-1637691212850" style={{display: "none"}}>
+            </div>
         </div>
     )
 }

@@ -22,7 +22,7 @@ export default function Controls({ disable, ...props }) {
       target={[0, 0, 0]}
       enableDamping
       minDistance={100.0}
-      maxDistance={100.0}
+      maxDistance={200.0}
       enablePan={false}
       enableRotate={true}
       dampingFactor={0.1}

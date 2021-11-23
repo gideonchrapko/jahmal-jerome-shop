@@ -1,9 +1,15 @@
 import React from 'react'
 
 const Shopify = () => {
+    // function showProducts(); {
+    //     return 
+    // }
+
     return (
-        <div id='collection-component-1637685440252'>
-            Shopify
+        <div>
+            <div id='product-component-1637691212850'>
+                
+            </div>
         </div>
     )
 }

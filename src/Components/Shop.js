@@ -6,6 +6,7 @@ const Shop = () => {
         <div>
             Shop
             <Shopify />
+            Shop part
         </div>
     )
 }

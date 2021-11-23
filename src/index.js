@@ -13,14 +13,14 @@ const customHistory = createBrowserHistory({
   })
 
 ReactDOM.render(
-<Router history={customHistory}>
-				<Route component={({history}) => {
-					window.appHistory = history
-					return (
-					<App />
-					)
-				}}/>
-			</Router>,
+	<Router history={customHistory}>
+		<Route component={({history}) => {
+			window.appHistory = history
+			return (
+			<App />
+			)
+		}}/>
+	</Router>,
   rootElement
 );
 
