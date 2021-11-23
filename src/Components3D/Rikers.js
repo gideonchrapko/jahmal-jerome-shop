@@ -40,9 +40,9 @@ export default function Rikers({ ...props }) {
       ref={group} 
       {...spring} 
       {...props} 
-      scale={animatedProps.hovered}
-      onPointerOver={() => setExpand(true)}
-      onPointerLeave={() => setExpand(false)}
+      // scale={animatedProps.hovered}
+      // onPointerOver={() => setExpand(true)}
+      // onPointerLeave={() => setExpand(false)}
       dispose={null} 
       // scale={[1, 1, 1]}
       // position={[5, -8, 75]}

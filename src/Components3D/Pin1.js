@@ -7,9 +7,11 @@ title: Pin for 3D clothing
 */
 
 import React, { useRef, useState } from 'react';
-import { useGLTF, Text } from '@react-three/drei';
+import { useGLTF } from '@react-three/drei';
 import { useSpring } from '@react-spring/core';
 import { a } from '@react-spring/three';
+
+import Text from './Text'
 
 export default function Pin({ ...props }) {
   const [expand, setExpand] = useState(false);
@@ -34,6 +36,7 @@ export default function Pin({ ...props }) {
       <group rotation={[-Math.PI / 8, 0, 0]} >
         <mesh geometry={nodes.mesh_0.geometry} material={expand ? materials.None : materials.None} />
       </group>
+      
     </a.group>
   )
 }
