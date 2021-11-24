@@ -73,7 +73,7 @@ export default function Home() {
         <color attach="background" args={['black']}/>
         <pointLight position={[0, 2, 0]} intensity={5} color={'red'}/>
         {/* <pointLight position={[-100, -100, -100]} intensity={0.5}/> */}
-        <pointLight position={[0, 3, 0]} intensity={2} color={'#0074ff'} />
+        <pointLight position={[0, 3, 0]} intensity={2} color={'red'} />
         <ambientLight intensity={0.2} />
         {/* <directionalLight intensity={0.1} position={[0, 10, 0]} color="red" distance={5} /> */}
         <spotLight intensity={5} position={[0, 1, 0]} angle={0.2} penumbra={1} castShadow shadow-mapSize={[2048, 2048]} />
@@ -83,7 +83,7 @@ export default function Home() {
             <Rikers />
               <Pin />
               <Text position={[-50, 0.6, -40]} height={20} scale={0.12} color="red" receiveShadow castShadow >
-                Shop
+                Commassary
               </Text>
               <Pin1
                 onPointerUp={() => window.appHistory.push("/gallery")}
