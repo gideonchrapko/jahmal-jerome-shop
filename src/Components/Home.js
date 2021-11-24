@@ -83,19 +83,19 @@ export default function Home() {
             <Rikers />
               <Pin />
               <Text position={[-50, 0.6, -40]} height={20} scale={0.12} color="red" receiveShadow castShadow >
-                Commassary
+                Commissary
               </Text>
               <Pin1
                 onPointerUp={() => window.appHistory.push("/gallery")}
               />
               <Text position={[0, 0.6, 0]} height={20} scale={0.12} color="red" receiveShadow castShadow >
-                Contact
+                Slot Time
               </Text>
               <Pin2
                 onPointerUp={() => window.appHistory.push("/contact")}
               />
               <Text position={[40, 0.6, -50]} height={20} scale={0.12} color="red" receiveShadow castShadow >
-                Lookbook
+                Law Library
               </Text>
             <Effects />
             <Controls />
