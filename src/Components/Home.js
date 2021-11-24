@@ -1,10 +1,13 @@
 import * as THREE from 'three'
-import React, { Suspense, useRef, useMemo, useState } from 'react'
+import React, { Suspense, useRef, useMemo, useState, useEffect } from 'react'
 import { Canvas, extend, useThree, useLoader, useFrame } from '@react-three/fiber'
 import { OrbitControls, Sky, Html } from '@react-three/drei'
 import { Water } from 'three-stdlib'
 import { EffectComposer, SSAO, Bloom } from '@react-three/postprocessing'
 import { KernelSize, BlendFunction } from 'postprocessing'
+
+import { useSpring } from '@react-spring/core';
+import { a } from '@react-spring/three';
 // import { Lightmap } from '@react-three/lightmap'
 
 import Rikers from '../Components3D/Rikers';
@@ -59,18 +62,38 @@ function Effects() {
 }
 
 export default function Home() {
+  const [expand, setExpand] = useState(false);
+  const [expand1, setExpand1] = useState(false);
+  const [expand2, setExpand2] = useState(false);
+  const [maxSize, setMaxSize] = useState()
+
+  const { translate } = useSpring({ translate: expand ? [-50, 4, -40] : [-50, 3, -40] })
+  const { translate1 } = useSpring({ translate1: expand1 ? [0, 4, 0] : [0, 3, 0] })
+  const { translate2 } = useSpring({ translate2: expand2 ? [40, 4, -50] : [40, 3, -50] })  
+
+  const { colour } = useSpring({ translate: expand ? "red" : "white" })
+
+  useEffect(() => {
+    const size = document.documentElement.clientWidth / 150
+
+    if (size <= 6 ) {
+      return setMaxSize(1000)
+    } 
+    if (size >= 6 ) {
+      return setMaxSize(100)
+    }
+  })
+
   return (
     <div>
       <div>
-                <img 
-                    src={Branding} 
-                    alt="Click to go the Home Page"
-                    className="branding"
-                    onClick={() => window.appHistory.push("/home")}
-                    />
-            </div>
-      {/* <div id="product-component-1637691212850" style={{display: "none"}}>
-      </div> */}
+        <img 
+            src={Branding} 
+            alt="Click to go the Home Page"
+            className="branding"
+            onClick={() => window.appHistory.push("/home")}
+          />
+      </div>
       <Canvas 
         receiveShadow 
         castShadow 
@@ -78,12 +101,12 @@ export default function Home() {
         dpr={[1, 2]}
         performance={{ min: 0.5 }}
         gl={{ alpha: false, antialias: false }}
-        camera={{ position: [0, 5, 100], fov: 55, near: 1, far: 20000 }}
+        camera={{ position: [0, 5, `${maxSize}`], fov: 55, near: 1, far: 20000 }}
       >
         <color attach="background" args={['black']}/>
-        <pointLight position={[0, 5, 0]} intensity={8} color={'red'}/>
+        <pointLight position={[20, 2, 20]} intensity={2} color={'#FFFBE1'}/>
         {/* <pointLight position={[-100, -100, -100]} intensity={0.5}/> */}
-        <pointLight position={[0, 1, 0]} intensity={5} color={'red'} />
+        {/* <pointLight position={[0, 1, 0]} intensity={5} color={'red'} /> */}
         <ambientLight intensity={0.2} />
         {/* <directionalLight intensity={0.1} position={[0, 10, 0]} color="red" distance={5} /> */}
         <spotLight intensity={5} position={[0, 1, 0]} angle={0.2} penumbra={1} castShadow shadow-mapSize={[2048, 2048]} />
@@ -91,22 +114,43 @@ export default function Home() {
           {/* <Lightmap> */}
             <Ocean />
             <Rikers />
+            <group
+              onPointerOver={() => setExpand(true)}
+              onPointerOut={() => setExpand(false)}
+            >
               <Pin />
-              <Text position={[-50, 1, -40]} height={20} scale={0.12} color="red" receiveShadow castShadow >
-                Commissary
-              </Text>
-              <Pin1
-                onPointerUp={() => window.appHistory.push("/gallery")}
-              />
-              <Text position={[0, 1, 0]} height={20} scale={0.12} color="red" receiveShadow castShadow >
-                Slot Time
-              </Text>
-              <Pin2
-                onPointerUp={() => window.appHistory.push("/contact")}
-              />
-              <Text position={[40, 1, -50]} height={20} scale={0.12} color="red" receiveShadow castShadow >
-                Law Library
-              </Text>
+            </group>
+              <a.group position={translate}>
+                <Text height={20} scale={0.12} color={expand ? "white" : "red"} receiveShadow castShadow >
+                  Commissary
+                </Text>
+              </a.group>
+              <group
+                onPointerOver={() => setExpand2(true)}
+                onPointerOut={() => setExpand2(false)}                
+              >
+                <Pin1            
+                  onPointerUp={() => window.appHistory.push("/gallery")}
+                />
+              </group>
+              <a.group position={translate2}>
+                <Text height={20} scale={0.12} color={expand2 ? "white" : "red"} receiveShadow castShadow >
+                  Slot Time
+                </Text>
+              </a.group>
+              <group
+                onPointerOver={() => setExpand1(true)}
+                onPointerOut={() => setExpand1(false)}                
+              >
+                <Pin2            
+                  onPointerUp={() => window.appHistory.push("/contact")}
+                />
+              </group>
+              <a.group position={translate1}>
+                <Text height={20} scale={0.12} color={expand1 ? "white" : "red"} receiveShadow castShadow >
+                  Law Library
+                </Text>
+              </a.group>
             <Effects />
             <Controls />
           {/* </Lightmap> */}

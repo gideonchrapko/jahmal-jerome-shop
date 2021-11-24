@@ -15,9 +15,11 @@ import Text from './Text'
 
 export default function Pin({ ...props }) {
   const [expand, setExpand] = useState(false);
+
   const animatedProps = useSpring({
     hovered: expand ? [220, 220, 220] : [150, 150, 150]
   });
+  
   const group = useRef()
   const { nodes, materials } = useGLTF('/Pin.gltf')
   return (

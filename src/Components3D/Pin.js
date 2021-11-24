@@ -17,7 +17,7 @@ export default function Pin({ ...props }) {
   
 
   const animatedProps = useSpring({
-    hovered: expand ? [210, 210, 210] : [150, 150, 150]
+    hovered: expand ? [220, 220, 220] : [150, 150, 150]
   });
   
   const group = useRef()
@@ -32,7 +32,6 @@ export default function Pin({ ...props }) {
       receiveShadow
       castShadow
       scale={animatedProps.hovered}
-      // scale={[150, 150, 150]}
       onPointerOver={() => setExpand(true)}
       onPointerOut={() => setExpand(false)}
     >

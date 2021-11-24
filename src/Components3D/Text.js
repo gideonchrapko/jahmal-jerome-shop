@@ -20,10 +20,11 @@ function Text({ children, scale = 0.2, height = 10, color = '#000000', ...props 
     }),
     [height]
   )
+  
   return (
     <mesh scale={scale} {...props}>
       <textGeometry args={[children, config]} />
-      <meshPhysicalMaterial color={color} clearcoat={1} clearcoatRoughness={0.1} metalness={0} roughness={0.1} />
+      <meshPhysicalMaterial color={color} clearcoat={1} clearcoatRoughness={0.1} metalness={0.1} roughness={0.1} />
     </mesh>
   )
 }
