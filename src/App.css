@@ -5,3 +5,13 @@
 /* div#product-component-1637691212850 {
   display: none;
 } */
+
+.branding {
+  position: fixed;
+  z-index: 11;
+  top: 3vh;
+  left: 3vh;
+  height: 10vw;
+  min-height: 60px;
+  cursor: pointer;
+}

@@ -15,6 +15,8 @@ import Pin2 from '../Components3D/Pin2';
 
 import Text from '../Components3D/Text'
 
+import Branding from '../Assets/branding.png'
+
 extend({ Water })
 
 function Ocean() {
@@ -59,6 +61,14 @@ function Effects() {
 export default function Home() {
   return (
     <div>
+      <div>
+                <img 
+                    src={Branding} 
+                    alt="Click to go the Home Page"
+                    className="branding"
+                    onClick={() => window.appHistory.push("/home")}
+                    />
+            </div>
       {/* <div id="product-component-1637691212850" style={{display: "none"}}>
       </div> */}
       <Canvas 
@@ -71,9 +81,9 @@ export default function Home() {
         camera={{ position: [0, 5, 100], fov: 55, near: 1, far: 20000 }}
       >
         <color attach="background" args={['black']}/>
-        <pointLight position={[0, 2, 0]} intensity={5} color={'red'}/>
+        <pointLight position={[0, 5, 0]} intensity={8} color={'red'}/>
         {/* <pointLight position={[-100, -100, -100]} intensity={0.5}/> */}
-        <pointLight position={[0, 3, 0]} intensity={2} color={'red'} />
+        <pointLight position={[0, 1, 0]} intensity={5} color={'red'} />
         <ambientLight intensity={0.2} />
         {/* <directionalLight intensity={0.1} position={[0, 10, 0]} color="red" distance={5} /> */}
         <spotLight intensity={5} position={[0, 1, 0]} angle={0.2} penumbra={1} castShadow shadow-mapSize={[2048, 2048]} />
@@ -82,19 +92,19 @@ export default function Home() {
             <Ocean />
             <Rikers />
               <Pin />
-              <Text position={[-50, 0.6, -40]} height={20} scale={0.12} color="red" receiveShadow castShadow >
+              <Text position={[-50, 1, -40]} height={20} scale={0.12} color="red" receiveShadow castShadow >
                 Commissary
               </Text>
               <Pin1
                 onPointerUp={() => window.appHistory.push("/gallery")}
               />
-              <Text position={[0, 0.6, 0]} height={20} scale={0.12} color="red" receiveShadow castShadow >
+              <Text position={[0, 1, 0]} height={20} scale={0.12} color="red" receiveShadow castShadow >
                 Slot Time
               </Text>
               <Pin2
                 onPointerUp={() => window.appHistory.push("/contact")}
               />
-              <Text position={[40, 0.6, -50]} height={20} scale={0.12} color="red" receiveShadow castShadow >
+              <Text position={[40, 1, -50]} height={20} scale={0.12} color="red" receiveShadow castShadow >
                 Law Library
               </Text>
             <Effects />
