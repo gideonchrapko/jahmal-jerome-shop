@@ -30,6 +30,7 @@ export default function Pin({ ...props }) {
       scale={animatedProps.hovered}
       onPointerOver={() => setExpand(true)}
       onPointerOut={() => setExpand(false)}
+      onPointerUp={() => window.appHistory.push("/law-library")}
     >
       <group rotation={[-Math.PI / 8, 0, 0]} >
         <mesh geometry={nodes.mesh_0.geometry} material={expand ? materials.None : materials.None} />

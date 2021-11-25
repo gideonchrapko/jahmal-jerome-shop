@@ -24,7 +24,7 @@ export default function Pin({ ...props }) {
   const { nodes, materials } = useGLTF('/Pin.gltf')
   return (
     <a.group 
-      onPointerUp={() => window.appHistory.push("/shop")}
+      onPointerUp={() => window.appHistory.push("/commissary")}
       position={[-55, 16, -46]}
       ref={group} 
       {...props} 

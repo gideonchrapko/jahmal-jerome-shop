@@ -14,9 +14,9 @@ function App() {
     <div className="App">
 		<Switch>
 			<Route exact path="/" component={Home} />
-			<Route path="/shop" component={Shop} />
-			<Route path="/gallery" component={Gallery} />
-          	<Route path="/contact" component={Contact} />
+			<Route path="/commissary" component={Shop} />
+			<Route path="/slot-time" component={Gallery} />
+          	<Route path="/law-library" component={Contact} />
 			<Route component={pageNotFound} />
 		</Switch>
     </div>

@@ -25,7 +25,6 @@ extend({ Water })
 function Ocean() {
   const ref = useRef()
   const gl = useThree((state) => state.gl)
-  // gl={{ antialias: false }}
   const waterNormals = useLoader(THREE.TextureLoader, '/waternormals.jpeg')
   waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping
   const geom = useMemo(() => new THREE.PlaneGeometry(10000, 10000), [])
@@ -121,7 +120,12 @@ export default function Home() {
               <Pin />
             </group>
               <a.group position={translate}>
-                <Text height={20} scale={0.12} color={expand ? "white" : "red"} receiveShadow castShadow >
+                <Text 
+                  height={20} 
+                  scale={0.12} 
+                  color={expand ? "white" : "red"} receiveShadow castShadow 
+                  onPointerUp={() => window.appHistory.push("/commissary")}
+                  >
                   Commissary
                 </Text>
               </a.group>
@@ -129,12 +133,15 @@ export default function Home() {
                 onPointerOver={() => setExpand2(true)}
                 onPointerOut={() => setExpand2(false)}                
               >
-                <Pin1            
-                  onPointerUp={() => window.appHistory.push("/gallery")}
-                />
+                <Pin1 />
               </group>
               <a.group position={translate2}>
-                <Text height={20} scale={0.12} color={expand2 ? "white" : "red"} receiveShadow castShadow >
+                <Text 
+                  height={20} 
+                  scale={0.12} 
+                  color={expand2 ? "white" : "red"} receiveShadow castShadow 
+                  onPointerUp={() => window.appHistory.push("/slot-time")}
+                  >
                   Slot Time
                 </Text>
               </a.group>
@@ -142,12 +149,15 @@ export default function Home() {
                 onPointerOver={() => setExpand1(true)}
                 onPointerOut={() => setExpand1(false)}                
               >
-                <Pin2            
-                  onPointerUp={() => window.appHistory.push("/contact")}
-                />
+                <Pin2 />
               </group>
               <a.group position={translate1}>
-                <Text height={20} scale={0.12} color={expand1 ? "white" : "red"} receiveShadow castShadow >
+                <Text 
+                  height={20} 
+                  scale={0.12} 
+                  color={expand1 ? "white" : "red"} receiveShadow castShadow 
+                  onPointerUp={() => window.appHistory.push("/law-library")}
+                >
                   Law Library
                 </Text>
               </a.group>

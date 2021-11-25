@@ -19,7 +19,7 @@ export default function Pin({ ...props }) {
   const animatedProps = useSpring({
     hovered: expand ? [220, 220, 220] : [150, 150, 150]
   });
-  
+
   const group = useRef()
   const { nodes, materials } = useGLTF('/Pin.gltf')
   return (
@@ -34,6 +34,7 @@ export default function Pin({ ...props }) {
       scale={animatedProps.hovered}
       onPointerOver={() => setExpand(true)}
       onPointerOut={() => setExpand(false)}
+      onPointerUp={() => window.appHistory.push("/slot-time")}
     >
       <group rotation={[-Math.PI / 8, 0, 0]} >
         <mesh geometry={nodes.mesh_0.geometry} material={expand ? materials.None : materials.None} />
