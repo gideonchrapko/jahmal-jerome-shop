@@ -6,6 +6,12 @@ import reportWebVitals from './reportWebVitals';
 
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import Client from 'shopify-buy';
+
+const client = Client.buildClient({
+	storefrontAccessToken: 'dd4d4dc146542ba7763305d71d1b3d38',
+	domain: 'graphql.myshopify.com'
+  });
 
 const rootElement = document.getElementById("root");
 const customHistory = createBrowserHistory({
@@ -17,7 +23,7 @@ ReactDOM.render(
 		<Route component={({history}) => {
 			window.appHistory = history
 			return (
-			<App />
+			<App client={client}/>
 			)
 		}}/>
 	</Router>,
