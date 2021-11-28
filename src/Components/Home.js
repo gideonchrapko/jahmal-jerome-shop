@@ -99,7 +99,7 @@ export default function Home() {
         gl={{ alpha: false, antialias: false }}
         camera={{ position: [0, 5, `${maxSize}`], fov: 55, near: 1, far: 20000 }}
       >
-        <color attach="background" args={['black']}/>
+        <color attach="background" args={['white']}/>
         <pointLight position={[20, 10, 20]} intensity={2} color={'#FFFBE1'}/>
         <ambientLight intensity={0.2} />
         <Suspense fallback={<Html>Loading..</Html>}>

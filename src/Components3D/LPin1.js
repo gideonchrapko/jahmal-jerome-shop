@@ -18,7 +18,7 @@ export default function LPin({ ...props }) {
     config: { 
       mass: 20, 
       friction: 70, 
-      tension: 200
+      tension: 400
     },
   }))
 

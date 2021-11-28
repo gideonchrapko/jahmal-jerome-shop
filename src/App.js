@@ -7,8 +7,10 @@ import Contact from './Components/Contact';
 import Products from './ShopifyComponents/Products';
 import Cart from './ShopifyComponents/Cart';
 import pageNotFound from './404';
+import Navbar from './Components/Navbar';
 
 import Branding from './Assets/branding.png'
+import { MdRemoveShoppingCart } from "react-icons/md"
 
 import './App.css';
 
@@ -105,10 +107,11 @@ class App extends Component {
 		<header className="App__header">
 			{!this.state.isCartOpen &&
 				<div className="App__view-cart-wrapper">
-				<button className="App__view-cart" onClick={()=> this.setState({isCartOpen: true})}>Cart</button>
+					<button className="App__view-cart" onClick={()=> this.setState({isCartOpen: true})}><MdRemoveShoppingCart /></button>
 				</div>
 			}
 		</header>
+		<Navbar />
 		<Switch>
 			<Route exact path="/" component={Home} />
 			<Route

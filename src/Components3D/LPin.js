@@ -29,7 +29,7 @@ export default function LPin({ position = [-55, 50, -46], ...props }) {
     config: { 
       mass: 10, 
       friction: 70, 
-      tension: 200
+      tension: 400
     },
   }))
 
