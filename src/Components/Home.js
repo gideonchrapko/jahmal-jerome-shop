@@ -12,13 +12,15 @@ import { a } from '@react-spring/three';
 
 import Rikers from '../Components3D/Rikers';
 import Controls from '../Components3D/Controls';
-import Pin from '../Components3D/Pin';
-import Pin1 from '../Components3D/Pin1';
-import Pin2 from '../Components3D/Pin2';
+// import Pin from '../Components3D/Pin';
+// import Pin1 from '../Components3D/Pin1';
+// import Pin2 from '../Components3D/Pin2';
+import Text from '../Components3D/Text';
+import LPin from '../Components3D/LPin'
+import LPin1 from '../Components3D/LPin1'
+import LPin2 from '../Components3D/LPin2'
 
-import Text from '../Components3D/Text'
-
-import Branding from '../Assets/branding.png'
+import Loading from '../Assets/Loading_Compr.gif'
 
 extend({ Water })
 
@@ -65,10 +67,13 @@ export default function Home() {
   const [expand1, setExpand1] = useState(false);
   const [expand2, setExpand2] = useState(false);
   const [maxSize, setMaxSize] = useState()
+  // const [ up, setUp ] = useState()
 
   const { translate } = useSpring({ translate: expand ? [-50, 4, -40] : [-50, 3, -40] })
   const { translate1 } = useSpring({ translate1: expand1 ? [0, 4, 0] : [0, 3, 0] })
   const { translate2 } = useSpring({ translate2: expand2 ? [40, 4, -50] : [40, 3, -50] })  
+
+  // const { lift } = useSpring({ translate: up ? [0, 0, 0] : [0, 0, 0] })
 
   const { colour } = useSpring({ translate: expand ? "red" : "white" })
 
@@ -85,14 +90,6 @@ export default function Home() {
 
   return (
     <div>
-      <div>
-        <img 
-            src={Branding} 
-            alt="Click to go the Home Page"
-            className="branding"
-            onClick={() => window.appHistory.push("/home")}
-          />
-      </div>
       <Canvas 
         receiveShadow 
         castShadow 
@@ -103,21 +100,18 @@ export default function Home() {
         camera={{ position: [0, 5, `${maxSize}`], fov: 55, near: 1, far: 20000 }}
       >
         <color attach="background" args={['black']}/>
-        <pointLight position={[20, 2, 20]} intensity={2} color={'#FFFBE1'}/>
-        {/* <pointLight position={[-100, -100, -100]} intensity={0.5}/> */}
-        {/* <pointLight position={[0, 1, 0]} intensity={5} color={'red'} /> */}
+        <pointLight position={[20, 10, 20]} intensity={2} color={'#FFFBE1'}/>
         <ambientLight intensity={0.2} />
-        {/* <directionalLight intensity={0.1} position={[0, 10, 0]} color="red" distance={5} /> */}
-        <spotLight intensity={5} position={[0, 1, 0]} angle={0.2} penumbra={1} castShadow shadow-mapSize={[2048, 2048]} />
-        <Suspense fallback={<Html center>Loading...</Html>}>
-          {/* <Lightmap> */}
+        <Suspense fallback={<Html>Loading..</Html>}>
             <Ocean />
             <Rikers />
-            <group
+              <group
               onPointerOver={() => setExpand(true)}
               onPointerOut={() => setExpand(false)}
             >
-              <Pin />
+              <LPin 
+                onPointerUp={() => window.appHistory.push("/commissary")}
+              />
             </group>
               <a.group position={translate}>
                 <Text 
@@ -133,7 +127,9 @@ export default function Home() {
                 onPointerOver={() => setExpand2(true)}
                 onPointerOut={() => setExpand2(false)}                
               >
-                <Pin1 />
+                <LPin1 
+                  onPointerUp={() => window.appHistory.push("/slot-time")}
+                />
               </group>
               <a.group position={translate2}>
                 <Text 
@@ -149,7 +145,9 @@ export default function Home() {
                 onPointerOver={() => setExpand1(true)}
                 onPointerOut={() => setExpand1(false)}                
               >
-                <Pin2 />
+                <LPin2 
+                  onPointerUp={() => window.appHistory.push("/law-library")}
+                />
               </group>
               <a.group position={translate1}>
                 <Text 
@@ -163,7 +161,6 @@ export default function Home() {
               </a.group>
             <Effects />
             <Controls />
-          {/* </Lightmap> */}
         </Suspense>
         <Sky scale={10000} sunPosition={[500, 150, -1000]} turbidity={0.01} />
         <OrbitControls />

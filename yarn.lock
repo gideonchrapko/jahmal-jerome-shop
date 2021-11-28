@@ -1161,10 +1161,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@compai/font-inter@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@compai/font-inter/-/font-inter-0.0.1.tgz#eb2adf8b7e5fd62092be4632484b204be08aafb7"
-  integrity sha512-JUwrEn0IwmGNhgA42q4LGih/j1P6xexyvF1HeRlFfAHDNbf6eGjxSIpD1/yCtkLSkk39YiFawTFnJBHzgOuqmA==
+"@compai/font-inter@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@compai/font-inter/-/font-inter-0.0.2.tgz#1b1fdf07ab22386671b17e82643b64d698bc87a8"
+  integrity sha512-ypdtmV9EzNgIYiqYYMdnjYvpRXwv2RAV7FSN2llQCaMMVNAsfjXI1+nngrD07nA11ydm5OOsQSKzngUBRlSCyg==
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"

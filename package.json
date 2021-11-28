@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@compai/font-inter": "0.0.1",
+    "@compai/font-inter": "^0.0.2",
     "@react-spring/core": "9.3.0",
     "@react-spring/three": "9.3.0",
     "@react-three/drei": "5.1.5-beta.1",

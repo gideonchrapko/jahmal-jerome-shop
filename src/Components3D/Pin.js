@@ -10,7 +10,6 @@ import React, { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useSpring } from '@react-spring/core';
 import { a } from '@react-spring/three';
-import Text from './Text'
 
 export default function Pin({ ...props }) {
   const [expand, setExpand] = useState(false);

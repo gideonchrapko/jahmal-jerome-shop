@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect, Suspense } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Shop from './Components/Shop';
 import Gallery from './Components/Gallery';
 import Home from './Components/Home';
 import Contact from './Components/Contact';
 import Products from './ShopifyComponents/Products';
 import Cart from './ShopifyComponents/Cart';
 import pageNotFound from './404';
+
+import Branding from './Assets/branding.png'
 
 import './App.css';
 
@@ -89,11 +90,18 @@ class App extends Component {
 		isCartOpen: false,
 	  });
 	}
-  
 
   render() {
     return (
     <div className="App">
+		<div>
+        <img 
+            src={Branding} 
+            alt="Click to go the Home Page"
+            className="branding"
+            onClick={() => window.appHistory.push("/home")}
+          />
+      	</div>
 		<header className="App__header">
 			{!this.state.isCartOpen &&
 				<div className="App__view-cart-wrapper">
