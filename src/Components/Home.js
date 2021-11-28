@@ -86,7 +86,7 @@ export default function Home() {
     if (size >= 6 ) {
       return setMaxSize(100)
     }
-  })
+  },[])
 
   return (
     <div>

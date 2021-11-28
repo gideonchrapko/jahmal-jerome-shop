@@ -9,7 +9,7 @@ function Text({ children, scale = 0.2, height = 10, color = '#000000', ...props 
   const config = useMemo(
     () => ({
       font,
-      size: 40,
+      size: 25,
       height,
       curveSegments: 32,
       bevelEnabled: true,

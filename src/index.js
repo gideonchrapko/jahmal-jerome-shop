@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from "react-redux"
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import store from "./redux/store"
+
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import Client from 'shopify-buy';
-
-const client = Client.buildClient({
-	storefrontAccessToken: 'dd4d4dc146542ba7763305d71d1b3d38',
-	domain: 'graphql.myshopify.com'
-  });
 
 const rootElement = document.getElementById("root");
 const customHistory = createBrowserHistory({
@@ -19,14 +17,16 @@ const customHistory = createBrowserHistory({
   })
 
 ReactDOM.render(
-	<Router history={customHistory}>
-		<Route component={({history}) => {
-			window.appHistory = history
-			return (
-			<App client={client}/>
-			)
-		}}/>
-	</Router>,
+	<Provider store={store}>
+		<Router history={customHistory}>
+			<Route component={({history}) => {
+				window.appHistory = history
+				return (
+				<App />
+				)
+			}}/>
+		</Router>
+	</Provider>,
   rootElement
 );
 

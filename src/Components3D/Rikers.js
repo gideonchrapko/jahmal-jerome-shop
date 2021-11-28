@@ -40,12 +40,7 @@ export default function Rikers({ ...props }) {
       ref={group} 
       {...spring} 
       {...props} 
-      // scale={animatedProps.hovered}
-      // onPointerOver={() => setExpand(true)}
-      // onPointerLeave={() => setExpand(false)}
       dispose={null} 
-      // scale={[1, 1, 1]}
-      // position={[5, -8, 75]}
       rotation={[0, Math.PI / -3, 0]}
     >
       <group position={[0, 0, -2.2]} rotation={[0, 0, Math.PI / 2]} scale={[0.1, 0.1, 0.1]} receiveShadow castShadow>
