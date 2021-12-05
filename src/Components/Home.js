@@ -1,26 +1,24 @@
-import * as THREE from 'three'
-import React, { Suspense, useRef, useMemo, useState, useEffect } from 'react'
-import { Canvas, extend, useThree, useLoader, useFrame } from '@react-three/fiber'
-import { OrbitControls, Sky, Html } from '@react-three/drei'
-import { Water } from 'three-stdlib'
-import { EffectComposer, SSAO, Bloom } from '@react-three/postprocessing'
-import { KernelSize, BlendFunction } from 'postprocessing'
+import * as THREE from 'three';
+import React, { Suspense, useRef, useMemo, useState, useEffect } from 'react';
+import { Canvas, extend, useThree, useLoader, useFrame } from '@react-three/fiber';
+import { OrbitControls, Sky, Html } from '@react-three/drei';
+import { Water } from 'three-stdlib';
+import { EffectComposer, SSAO, Bloom } from '@react-three/postprocessing';
+import { KernelSize, BlendFunction } from 'postprocessing';
 
 import { useSpring } from '@react-spring/core';
 import { a } from '@react-spring/three';
-// import { Lightmap } from '@react-three/lightmap'
 
 import Rikers from '../Components3D/Rikers';
 import Controls from '../Components3D/Controls';
-// import Pin from '../Components3D/Pin';
-// import Pin1 from '../Components3D/Pin1';
-// import Pin2 from '../Components3D/Pin2';
-import Text from '../Components3D/Text';
-import LPin from '../Components3D/LPin'
-import LPin1 from '../Components3D/LPin1'
-import LPin2 from '../Components3D/LPin2'
 
-import Loading from '../Assets/Loading_Compr.gif'
+import Text from '../Components3D/Text';
+import LPin from '../Components3D/LPin';
+import LPin1 from '../Components3D/LPin1';
+import LPin2 from '../Components3D/LPin2';
+
+import Loading from '../Assets/Loading_Compr.gif';
+import Logo from '../Assets/RikersLogo.svg';
 
 extend({ Water })
 
@@ -102,6 +100,8 @@ export default function Home() {
         <color attach="background" args={['white']}/>
         <pointLight position={[20, 10, 20]} intensity={2} color={'#FFFBE1'}/>
         <ambientLight intensity={0.2} />
+        <Html><div style={{ width: "60vw", position: "fixed", left: "-30vw", bottom: "-40vh" }}><img src={Logo} style={{ width: "100%", height: "auto" }} /></div></Html>
+
         <Suspense fallback={<Html>Loading..</Html>}>
             <Ocean />
             <Rikers />
