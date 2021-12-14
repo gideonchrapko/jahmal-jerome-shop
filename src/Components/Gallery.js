@@ -1,13 +1,8 @@
 import * as THREE from 'three'
-// import ReactDOM from 'react-dom'
 import React, { Suspense, useState } from 'react'
 import { Canvas, useLoader } from '@react-three/fiber'
 import { Html, Preload, OrbitControls } from '@react-three/drei'
-
 import image from '../Assets/branding.png'
-// import { Popconfirm } from 'antd'
-// import 'antd/dist/antd.css'
-// import './styles.css'
 
 const store = [
   { name: 'outside', color: 'lightpink', position: [10, 0, -15], url: '/epirectangular-min.png', link: 1 },
@@ -43,7 +38,7 @@ function Dome({ texture }) {
 function Portals() {
   const [which, set] = useState(0)
   const { link, ...props } = store[which]
-  const maps = useLoader(THREE.TextureLoader, store.map((entry) => entry.url)) // prettier-ignore
+  const maps = useLoader(THREE.TextureLoader, store.map((entry) => entry.url))
   return <Dome onClick={() => set(link)} {...props} texture={maps[which]} />
 }
 
