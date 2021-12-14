@@ -51,14 +51,13 @@ export default (props) => {
 		<Navbar />
 		<Switch>
 			<Route exact path="/" component={Home} />
-			<Route path="/commissary" component={Products} />
+			<Route path="/commissary" exact component={Products} />
 			<Route path="/slot-time" component={Gallery} />
           	<Route path="/law-library" component={Contact} />
-			  <Route path="/Product/:productId" component={ProductView} />
+			<Route path="/commissary/:productId" component={ProductView} />
 			<Route component={pageNotFound} />
 		</Switch>
 		<h1 className="footer">© Jerome Jahmal 2021 Copyright All Rights </h1>
     </div>
-
     );
 }

@@ -75,15 +75,15 @@ img {
 .App__view-cart {
 	/* height: 2.6vh; */
     top: 2vh;
-	font-size: 3vh;
+	  font-size: 3vh;
     outline: none;
     z-index: 40; 
     border: none; 
     position: fixed;
     right: 12%; 
     cursor: pointer; 
-	background: none;
-	color: white;
+	  background: none;
+	  color: white;
 }
 
 .button {
@@ -364,9 +364,12 @@ img {
 }
 
 .product-image {
+  cursor: pointer;
+}
+
+.image {
   border-radius: 10px;
   border: 2px solid red;
-  cursor: pointer;
 }
 
 .prod-title-item{
@@ -397,14 +400,6 @@ img {
 .Product__title {
   font-size: 12pt;
   float: left;
-  font-family: sans-serif;
-  font-weight: 300;
-  color: red;
-}
-
-.Product__price {
-  font-size: 12pt;
-  float: right;
   font-family: sans-serif;
   font-weight: 300;
   color: red;
@@ -445,6 +440,269 @@ input[type=number]::-webkit-inner-spin-button {
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
+}
+
+/* product view */
+
+.prod-info-contianer {
+  height: 50vh; 
+  top: 25vh; 
+  border: 2px solid red; 
+  border-radius: 20px;
+  color: red;
+  width: 100%;
+}
+
+.prod-image-container {
+  height: 50vh; 
+  top: 25vh; 
+  margin-bottom: 20vh;
+  width: 100%;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  top: 20px;
+  position: relative;
+}
+
+.row::after {
+  margin-top: 50px;
+  content: "";
+  clear: both;
+
+}
+
+.prod-arrow {
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+.Product_Image {
+	width: 80%;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+  border-radius: 20px;
+  border: 2px solid red;
+}
+
+.prod-img-div {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  border: 2px solid red;
+}
+
+.Product__info {
+	width: 90%;
+  height: 50vh;
+	top: 20vh;
+  border: red 2px solid;
+  border-radius: 20px;
+  color: red;
+}
+
+.prodQuantity-update {
+	color: red;
+	display: block;
+	float: left;
+	height: 50px;
+	line-height: 16px;
+	font-family: sans-serif;
+	font-weight: 500;
+	width: 25px;
+	padding: 0;
+	border: none;
+	background: transparent;
+	box-shadow: none;
+	cursor: pointer;
+	font-size: 3rem;
+	text-align: center;
+}
+
+.prodQuantity-container {
+	border: 1px solid  red;
+	border-radius: 10px;
+  width: 95%;
+  height: 55px;
+  left: 2.5%;
+  position: relative;
+}
+
+.prodQuantity {
+  font-family: sans-serif;
+	font-weight: 800;
+	font-style: normal;
+  color: red;
+	align-items: center;
+	vertical-align: middle;
+	display: flex;
+	text-align: center;
+	justify-content:center;
+	width: 80%;
+	height: 50px;
+	font-size: 1.5rem;
+	-moz-appearance: textfield;
+	bottom: -5px;
+	background: transparent;
+	vertical-align: middle;
+	float: left;
+}
+
+.horizontal-list {
+  overflow-x: scroll;
+  overflow-y: none;
+}
+
+.prod-size-container-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* width: 100vw; */
+}
+
+.prod-list-item {
+  float: left;
+}
+
+.prod-listitem-anchor {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+.prod-listitem-anchor:hover {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+/* I might need to delete this  vvvvv */
+
+.style__dropdown {
+	cursor: pointer;
+	align-items: center;
+	vertical-align: middle;
+	display: flex;
+	height: 50px;
+	padding: 20px;
+	border: #ffffff solid 1px;
+	border-radius: 5px;
+	color: red;
+	font-size: 1.5rem;
+}
+
+.dropDownArrow {
+	cursor: pointer;
+	float: right;
+	position: relative;
+  right: 0;
+}
+
+.style__dropdownDiv{
+	cursor: pointer;
+	padding: 1%;
+	background: black;
+	border-radius: 5px;
+	width: 79%;
+	color: red;
+	position: absolute;
+}
+
+.Product__sectionHeader{
+  font-family: sans-serif;
+  font-weight: 300;
+  font-size: 30pt;
+  text-align: center;
+  position: relative;
+  margin-top: -20px;
+  background-color: white;
+  width: 40%;
+  left: 30%;
+}
+
+.product_list_price {
+  font-size: 12pt;
+  float: right;
+  font-family: sans-serif;
+  font-weight: 300;
+  color: red;
+}
+
+.Product__price {
+  font-size: 30pt;
+  float: right;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: red;
+  text-align: center;
+  width: 100%;
+  padding-top: 10px;
+}
+
+
+/* I might need to delete this ^^^^  */
+
+.subhead_prod {
+  font-size: 20pt;
+  font-family: sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+.prod-size-cont {
+  border: red solid 20px;
+  border: 10px;
+}
+
+.Product__description {
+  width: 100%;
+  font-size: 8pt;
+  line-height: 1;
+  left: -15px;
+  position: relative;
+  top: 10px;
+}
+
+.prodBuyButton {
+  background-color: red;
+  color: white;
+  font-family: sans-serif;
+  font-size: 25pt;
+  font-weight: 700;
+  width: 100%;
+  border-radius: 10px;
+  border:none;
+  top: 10px;
+  position: relative;
+}
+
+.background2 {
+background-color: black;
+}
+
+.background2{
+  background-color: white;
 }
 
 /* CUSTOMER AUTH
