@@ -100,7 +100,7 @@ export default function Home() {
         <color attach="background" args={['white']}/>
         <pointLight position={[20, 10, 20]} intensity={2} color={'#FFFBE1'}/>
         <ambientLight intensity={0.2} />
-        <Html><div style={{ width: "60vw", position: "fixed", left: "-30vw", bottom: "-40vh" }}><img src={Logo} style={{ width: "100%", height: "auto" }} /></div></Html>
+        {/* <Html><div style={{ width: "60vw", position: "fixed", left: "-30vw", bottom: "-40vh" }}><img src={Logo} style={{ width: "100%", height: "auto" }} /></div></Html> */}
 
         <Suspense fallback={<Html>Loading..</Html>}>
             <Ocean />

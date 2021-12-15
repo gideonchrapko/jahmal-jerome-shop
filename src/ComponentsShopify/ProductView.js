@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
-import { useSpring, animated } from 'react-spring'
+import { useSpring } from 'react-spring'
 import { useShopify } from "../hooks";
 
-import DropDownArrow from '../Assets/dropDownArrow.svg'
+import background from '../Assets/Wall-01min.png'
 import Arrow from '../Assets/imgArrow.svg'
 
 export default (props) => {
@@ -88,7 +88,7 @@ export default (props) => {
 	}
 
 	return (
-		<Container fluid id="individualProduct">
+		<Container fluid id="individualProduct" style={{ backgroundImage: `url(${background})` }}>
 			<Row className="product-wrapper2">
 				<Col 
 					className="prod-image-container"

@@ -788,8 +788,8 @@ background-color: black;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
-  align-items: center;
-  transform: scale(0.4);
-  margin-top: -40vh;
+  height: auto;
+  width: 20%;
+  background-color: "red";
+  /* margin-top: 20vh; */
 }

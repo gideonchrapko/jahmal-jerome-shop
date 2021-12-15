@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { Container, Row, Col } from "react-bootstrap"
+import background from '../Assets/Wall-01min.png'
 
 import Product from "./Product"
-
 const Products = (props) => {
 	const locale = 'en';
 	const [today, setDate] = useState(new Date());
@@ -20,7 +20,7 @@ const Products = (props) => {
 	},[])
 
   return (
-		<Container fluid >
+		<Container fluid style={{ backgroundImage: `url(${background})` }}>
 			<div className="product-header">
 				<Row>
 					<Col lg={{ span: 4, offset: 2 }} >

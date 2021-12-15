@@ -52,8 +52,8 @@ export default (props) => {
 		<Switch>
 			<Route exact path="/" component={Home} />
 			<Route path="/commissary" exact component={Products} />
-			<Route path="/slot-time" component={Gallery} />
-          	<Route path="/law-library" component={Contact} />
+			<Route path="/slot-time" component={Contact} />
+          	<Route path="/law-library" component={Gallery} />
 			<Route path="/commissary/:productId" component={ProductView} />
 			<Route component={pageNotFound} />
 		</Switch>
