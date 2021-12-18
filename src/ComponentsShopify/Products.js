@@ -10,19 +10,19 @@ const Products = (props) => {
 	const hour = today.getHours();
 	const time = today.toLocaleTimeString(locale, { hour: 'numeric', hour12: true, minute: 'numeric' });
 
-	useEffect(() => {
-		const timer = setInterval(() => { // Creates an interval which will update the current data every minute
-			setDate(new Date());
-		  }, 60 * 1000);
-		  return () => {
-			clearInterval(timer); // Return a funtion to clear the timer so that it will stop being called on unmount
-		  }
-	},[])
+	// useEffect(() => {
+	// 	const timer = setInterval(() => { // Creates an interval which will update the current data every minute
+	// 		setDate(new Date());
+	// 	  }, 60 * 1000);
+	// 	  return () => {
+	// 		clearInterval(timer); // Return a funtion to clear the timer so that it will stop being called on unmount
+	// 	  }
+	// },[])
 
   return (
 		<Container fluid style={{ backgroundImage: `url(${background})` }}>
-			<div className="product-header">
-				<Row>
+			<div>
+				<Row className="product-header">
 					<Col lg={{ span: 4, offset: 2 }} >
 						<h4 className="product-subheader" style={{ textAlign: "left" }}>{time}</h4>
 					</Col>

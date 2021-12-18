@@ -206,10 +206,6 @@ export default (props) => {
 									>{`${item.title}`}</li>	
 								)
 						})} */}
-
-
-
-
 					</div>
 					<div style={{ width: "50%", float: "right" }}>
 						<h2 className="subhead_prod">QUANTITY</h2>
