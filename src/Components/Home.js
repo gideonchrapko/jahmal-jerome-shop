@@ -17,11 +17,7 @@ import LPin from '../Components3D/LPin';
 import LPin1 from '../Components3D/LPin1';
 import LPin2 from '../Components3D/LPin2';
 
-import Loading from '../Assets/Loading_Compr.gif';
-import Logo from '../Assets/RikersLogo.svg';
-
 extend({ Water })
-
 function Ocean() {
   const ref = useRef()
   const gl = useThree((state) => state.gl)
@@ -49,7 +45,6 @@ function Ocean() {
 function Effects() {
   const ref = useRef()
   useFrame((state) => {
-    // Disable SSAO on regress
     ref.current.blendMode.setBlendFunction(state.performance.current < 1 ? BlendFunction.SKIP : BlendFunction.MULTIPLY)
   }, [])
   return (
@@ -65,15 +60,12 @@ export default function Home() {
   const [expand1, setExpand1] = useState(false);
   const [expand2, setExpand2] = useState(false);
   const [maxSize, setMaxSize] = useState()
-  // const [ up, setUp ] = useState()
 
-  const { translate } = useSpring({ translate: expand ? [-50, 4, -40] : [-50, 3, -40] })
-  const { translate1 } = useSpring({ translate1: expand1 ? [0, 4, 0] : [0, 3, 0] })
-  const { translate2 } = useSpring({ translate2: expand2 ? [40, 4, -50] : [40, 3, -50] })  
+  // const { translate } = useSpring({ translate: expand ? [-50, 4, -40] : [-50, 3, -40] })
+  // const { translate1 } = useSpring({ translate1: expand1 ? [0, 4, 0] : [0, 3, 0] })
+  // const { translate2 } = useSpring({ translate2: expand2 ? [40, 4, -50] : [40, 3, -50] })  
 
-  // const { lift } = useSpring({ translate: up ? [0, 0, 0] : [0, 0, 0] })
-
-  const { colour } = useSpring({ translate: expand ? "red" : "white" })
+  // const { colour } = useSpring({ translate: expand ? "red" : "white" })
 
   useEffect(() => {
     const size = document.documentElement.clientWidth / 150
@@ -97,11 +89,10 @@ export default function Home() {
         gl={{ alpha: false, antialias: false }}
         camera={{ position: [0, 5, `${maxSize}`], fov: 55, near: 1, far: 20000 }}
       >
-        <color attach="background" args={['white']}/>
+        {/* <color attach="background" args={['white']}/> */}
         <pointLight position={[20, 10, 20]} intensity={2} color={'#FFFBE1'}/>
+        <pointLight position={[-200, 20, -200]} intensity={1} color={'white'} />
         <ambientLight intensity={0.2} />
-        {/* <Html><div style={{ width: "60vw", position: "fixed", left: "-30vw", bottom: "-40vh" }}><img src={Logo} style={{ width: "100%", height: "auto" }} /></div></Html> */}
-
         <Suspense fallback={<Html>Loading..</Html>}>
             <Ocean />
             <Rikers />
@@ -113,10 +104,12 @@ export default function Home() {
                 onPointerUp={() => window.appHistory.push("/commissary")}
               />
             </group>
-              <a.group position={translate}>
+              {/* <a.group position={translate}> */}
+              <a.group position={[-60, 3, -40]}>
                 <Text 
                   height={20} 
-                  scale={0.12} 
+                  // scale={0.12} 
+                  scale={0.2}
                   color={expand ? "white" : "red"} receiveShadow castShadow 
                   onPointerUp={() => window.appHistory.push("/commissary")}
                   >
@@ -131,10 +124,11 @@ export default function Home() {
                   onPointerUp={() => window.appHistory.push("/slot-time")}
                 />
               </group>
-              <a.group position={translate2}>
+              {/* <a.group position={translate2}> */}
+              <a.group position={[45, 3, -40]}>
                 <Text 
                   height={20} 
-                  scale={0.12} 
+                  scale={0.2} 
                   color={expand2 ? "white" : "red"} receiveShadow castShadow 
                   onPointerUp={() => window.appHistory.push("/slot-time")}
                   >
@@ -149,10 +143,11 @@ export default function Home() {
                   onPointerUp={() => window.appHistory.push("/law-library")}
                 />
               </group>
-              <a.group position={translate1}>
+              {/* <a.group position={translate1}> */}
+              <a.group position={[0, 3, 0]}>
                 <Text 
                   height={20} 
-                  scale={0.12} 
+                  scale={0.2} 
                   color={expand1 ? "white" : "red"} receiveShadow castShadow 
                   onPointerUp={() => window.appHistory.push("/law-library")}
                 >
