@@ -87,7 +87,8 @@ export default function Home() {
         dpr={[1, 2]}
         performance={{ min: 0.5 }}
         gl={{ alpha: false, antialias: false }}
-        camera={{ position: [0, 5, `${maxSize}`], fov: 55, near: 1, far: 20000 }}
+        // camera={{ position: [0, 5, `${maxSize}`], fov: 55, near: 1, far: 20000 }}
+        camera={{ position: [20, 20, `${maxSize}`], fov: 40, near: 1, far: 2000 }}
       >
         {/* <color attach="background" args={['white']}/> */}
         <pointLight position={[20, 10, 20]} intensity={2} color={'#FFFBE1'}/>

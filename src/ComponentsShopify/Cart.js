@@ -62,7 +62,7 @@ export default (props) => {
 			<div id="cart">
 				<div className={`Cart ${cartStatus ? "Cart--open" : ""}`}>
 					<header className="Cart__header">
-						<h2>Your cart</h2>
+						<h4>CART</h4>
 						<button className="Cart__close" onClick={(e) => handleClose(e)}>
 							<MdRemoveShoppingCart />
 						</button>
