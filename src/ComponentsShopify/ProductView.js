@@ -21,20 +21,21 @@ export default (props) => {
 	const [ imageIndex, setImageIndex ] = useState(0)
 
 	const [sizeTitle, setSizeTitle] = useState("")
-	const [rotate, setRotate] = useState()
-	const [dropDownMenu, setdropDownMenu] = useState(false);
+	const [sizeClicked, setSizeClicked] = useState(false)
+	// const [rotate, setRotate] = useState()
+	// const [dropDownMenu, setdropDownMenu] = useState(false);
 
 	const description = product.description && product.description.split(".")
 	const imgIndexLength = product.images && product.images.length - 1
 
-	const rotationAnimation = useSpring({
-		transform: !rotate ? `rotate(0deg)` : `rotate(180deg)`,
-	});
+	// const rotationAnimation = useSpring({
+	// 	transform: !rotate ? `rotate(0deg)` : `rotate(180deg)`,
+	// });
 
-    const dropDownMenuAnimation = useSpring({
-      opacity: dropDownMenu ? 1 : 0,
-      transform: dropDownMenu ? `translateY(0) scaleY(1)` : `translateY(-130%) scaleY(0)`
-    }); 
+    // const dropDownMenuAnimation = useSpring({
+    //   opacity: dropDownMenu ? 1 : 0,
+    //   transform: dropDownMenu ? `translateY(0) scaleY(1)` : `translateY(-130%) scaleY(0)`
+    // }); 
 
 	function changeSize(sizeId, quantity) {
 		openCart()
@@ -58,14 +59,11 @@ export default (props) => {
 		if (item.available) {
 			setSize(item.id.toString());
 			setSizeTitle(item.title);
-			setRotate(!rotate);
-			setdropDownMenu(!dropDownMenu);
+			setSizeClicked(true)
 		} else {
-			return
+			return setSizeClicked(false)
 		}
 	}
-
-	console.log(quantity)
 
 	useEffect(() => {
 		fetchProduct(id)
@@ -89,7 +87,7 @@ export default (props) => {
 
 	return (
 		<Container fluid id="individualProduct" style={{ backgroundImage: `url(${background})` }}>
-			<Row className="product-wrapper2">
+			<Row>
 				<Col 
 					className="prod-image-container"
 					lg={{ span: 5, offset: 1 }}
@@ -134,78 +132,37 @@ export default (props) => {
 					</h3>
 					<div style={{ width: "50%", float: "left" }}>
 						<h2 className="subhead_prod" >SIZE</h2>
-							<div className="prodQuantity-container horizontal-list">
-								<ul className="prod-size-container-list">
+							<div className="prodQuantity-container" >
+								<ul className="prod-ul">
 									{product.variants &&
 										product.variants.map((item, i) => {
 											return (
 												<li
+													className="prod-li"
+													// style={{ width: `${item.length}` }}
 													onClick={e => {
 														clickFunction(item, i)
 													}}
-													// className={item.available ? "size__option" : "size__option2" }	
-													className="prod-list-item"
 													key={item.title + i}
 												>
-													<a className="prod-listitem-anchor" style={{ backgroundColor: `${i % 2 == 0 ? "white" : "#FFE6E6"}`, borderRadius: "10px"}}>
+													<a 
+														style={{ 
+															backgroundColor: `${i % 2 == 0 ? "" : "#FFE6E6"}`, 
+															borderRadius: "8px",
+															color: `${item.available ? "red" : "grey" }`,
+															cursor: `${item.available ? "pointer" : "not-allowed" }`,
+															WebkitTextStrokeWidth: `${item.title === sizeTitle ? "1px" : "0px" }`,
+														}}
+														className="prod-a"
+													>
 														{`${item.title}`}
 													</a>
 												</li>	
 											)
-										})}
-
-									</ul>
-							</div>
-							
-							
-							{/* <div className="prodQuantity-container" >
-								<div 
-									className="style__dropdown" 
-									id="prodOptions" 
-									onClick={e => {
-										setdropDownMenu(!dropDownMenu);
-										setRotate(!rotate);
-									}}>
-									{sizeTitle ? sizeTitle : "Size"}
-									<animated.img src={DropDownArrow} alt="drop down arrow" style={rotationAnimation} className="dropDownArrow"/>
-								</div>
-								<animated.div className="style__dropdownDiv" style={dropDownMenuAnimation}>	
-								{product.variants &&
-								product.variants.map((item, i) => {
-									return (
-										<option
-											value={item.id.toString()}
-											key={item.title + i}
-										>{`${item.title}`}</option>
-									)
-								})}
-									{product.variants &&
-										product.variants.map((item, i) => {
-											return (
-												<li
-													onClick={e => {
-														clickFunction(item, i)
-													}}
-													className={item.available ? "size__option" : "size__option2" }												
-													key={item.title + i}
-												>{`${item.title}`}</li>	
-											)
 									})}
-								</animated.div>	
-							</div>
 
-						{product.variants &&
-							product.variants.map((item, i) => {
-								return (
-									<li
-										onClick={e => {
-											clickFunction(item, i)
-										}}
-										className={item.available ? "size__option" : "size__option2" }												
-										key={item.title + i}
-									>{`${item.title}`}</li>	
-								)
-						})} */}
+								</ul>
+							</div>
 					</div>
 					<div style={{ width: "50%", float: "right" }}>
 						<h2 className="subhead_prod">QUANTITY</h2>
@@ -244,7 +201,6 @@ export default (props) => {
 						{product.availableForSale ?
 							<button
 								className="prodBuyButton"
-											// this needs to be different for a product with no variant
 								onClick={(e) => changeSize(size, quantity)}
 							>
 								Add to Cart
@@ -264,40 +220,6 @@ export default (props) => {
 								})}
 						</ul>
 					</div>
-					{/* <div>
-						<label htmlFor={"prodOptions"}>Size</label>
-						<select
-							id="prodOptions"
-							name={size}
-							onChange={(e) => {
-								setSize(e.target.value)
-							}}
-						>
-							{product.variants &&
-								product.variants.map((item, i) => {
-									return (
-										<option
-											value={item.id.toString()}
-											key={item.title + i}
-										>{`${item.title}`}</option>
-									)
-								})}
-						</select>
-					</div> */}
-
-					{/* <div>
-						<label>Quantity</label>
-						<input
-							className="quantity"
-							type="number"
-							min={1}
-							value={quantity}
-							onChange={(e) => {
-								setQuantity(e.target.value)
-							}}
-						></input>
-					</div> */}
-
 				</Col>
 			</Row>
 		</Container>
