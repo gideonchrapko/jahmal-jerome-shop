@@ -12,7 +12,7 @@ import ProductView from './ComponentsShopify/ProductView';
 
 
 import pageNotFound from './404';
-import Navbar from './Components/Navbar';
+import Navbar from './Components/Navigation/Navbar';
 
 import Branding from './Assets/branding.png'
 import { MdRemoveShoppingCart } from "react-icons/md"
@@ -48,7 +48,6 @@ export default (props) => {
           />
 		  <Cart />
       	</div>
-		<Navbar />
 		<Switch>
 			<Route exact path="/" component={Home} />
 			<Route path="/commissary" exact component={Products} />

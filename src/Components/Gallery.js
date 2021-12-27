@@ -3,6 +3,8 @@ import React, { Suspense, useState } from 'react';
 import { Canvas, useLoader } from '@react-three/fiber';
 import { Html, Preload, OrbitControls } from '@react-three/drei';
 
+import Navbar from './Navigation/Navbar';
+
 const store = [
   { name: 'outside', color: 'lightpink', position: [10, 0, -15], url: '/epirectangular.png', link: 1 },
   { name: 'inside', color: 'lightblue', position: [15, 0, 0], url: '/epirectangular.png', link: 0 }
@@ -29,14 +31,17 @@ function Portals() {
 
 const Gallery = () => {
     return (
+      <div>
+        <Navbar/>
         <Canvas frameloop="demand" camera={{ position: [0, 0, 0.1] }}>
-          <Html></Html>
-        <OrbitControls enableZoom={false} enablePan={false} enableDamping dampingFactor={0.2} autoRotate={true} rotateSpeed={-0.5} />
-        <Suspense fallback={null}>
-            <Preload all />
-            <Portals />
-        </Suspense>
-      </Canvas>
+            <Html></Html>
+          <OrbitControls enableZoom={false} enablePan={false} enableDamping dampingFactor={0.2} autoRotate={true} rotateSpeed={-0.5} />
+          <Suspense fallback={null}>
+              <Preload all />
+              <Portals />
+          </Suspense>
+        </Canvas>
+      </div>
     )
 }
 

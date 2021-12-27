@@ -5,12 +5,12 @@ import phone from '../Assets/phone.png';
 import background from '../Assets/Wall-01min.png'
 import Paper from '../Assets/Paper.svg'
 
-import { motion } from 'framer-motion'
+import Navbar from './Navigation/Navbar';
 
 const Contact = () => {
-const [hovered, setHovered] = useState(false)
-
     return (
+    <div>
+        <Navbar />
         <Container fluid style={{ backgroundImage: `url(${background})`, backgroundSize: "cover", backgroundPosition: "center", width: "100vw", height: "100vh" }}>
             <img 
                 src={phone} 
@@ -24,6 +24,7 @@ const [hovered, setHovered] = useState(false)
                 />
             </a>
         </Container>
+    </div>       
     )
 }
 

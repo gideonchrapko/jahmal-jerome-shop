@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
-import { useSpring } from 'react-spring'
+// import { useSpring } from 'react-spring'
 import { useShopify } from "../hooks";
+import Navbar from '../Components/Navigation/Navbar'
 
 import background from '../Assets/Wall-01min.png'
 import Arrow from '../Assets/imgArrow.svg'
@@ -22,20 +23,9 @@ export default (props) => {
 
 	const [sizeTitle, setSizeTitle] = useState("")
 	const [sizeClicked, setSizeClicked] = useState(false)
-	// const [rotate, setRotate] = useState()
-	// const [dropDownMenu, setdropDownMenu] = useState(false);
 
 	const description = product.description && product.description.split(".")
 	const imgIndexLength = product.images && product.images.length - 1
-
-	// const rotationAnimation = useSpring({
-	// 	transform: !rotate ? `rotate(0deg)` : `rotate(180deg)`,
-	// });
-
-    // const dropDownMenuAnimation = useSpring({
-    //   opacity: dropDownMenu ? 1 : 0,
-    //   transform: dropDownMenu ? `translateY(0) scaleY(1)` : `translateY(-130%) scaleY(0)`
-    // }); 
 
 	function changeSize(sizeId, quantity) {
 		openCart()
@@ -86,6 +76,8 @@ export default (props) => {
 	}
 
 	return (
+		<div>
+		<Navbar />
 		<Container fluid id="individualProduct" style={{ backgroundImage: `url(${background})` }}>
 			<Row>
 				<Col 
@@ -147,7 +139,7 @@ export default (props) => {
 												>
 													<a 
 														style={{ 
-															backgroundColor: `${i % 2 == 0 ? "" : "#FFE6E6"}`, 
+															backgroundColor: `${i % 2 === 0 ? "" : "#FFE6E6"}`, 
 															borderRadius: "8px",
 															color: `${item.available ? "red" : "grey" }`,
 															cursor: `${item.available ? "pointer" : "not-allowed" }`,
@@ -223,5 +215,6 @@ export default (props) => {
 				</Col>
 			</Row>
 		</Container>
+	</div>
 	)
 }

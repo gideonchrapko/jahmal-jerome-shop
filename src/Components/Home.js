@@ -6,8 +6,8 @@ import { Water } from 'three-stdlib';
 import { EffectComposer, SSAO, Bloom } from '@react-three/postprocessing';
 import { KernelSize, BlendFunction } from 'postprocessing';
 
-import { useSpring } from '@react-spring/core';
 import { a } from '@react-spring/three';
+import Navbar from './Navigation/Navbar';
 
 import Rikers from '../Components3D/Rikers';
 import Controls from '../Components3D/Controls';
@@ -61,12 +61,6 @@ export default function Home() {
   const [expand2, setExpand2] = useState(false);
   const [maxSize, setMaxSize] = useState()
 
-  // const { translate } = useSpring({ translate: expand ? [-50, 4, -40] : [-50, 3, -40] })
-  // const { translate1 } = useSpring({ translate1: expand1 ? [0, 4, 0] : [0, 3, 0] })
-  // const { translate2 } = useSpring({ translate2: expand2 ? [40, 4, -50] : [40, 3, -50] })  
-
-  // const { colour } = useSpring({ translate: expand ? "red" : "white" })
-
   useEffect(() => {
     const size = document.documentElement.clientWidth / 150
 
@@ -80,6 +74,7 @@ export default function Home() {
 
   return (
     <div>
+      <Navbar />
       <Canvas 
         receiveShadow 
         castShadow 
@@ -87,10 +82,10 @@ export default function Home() {
         dpr={[1, 2]}
         performance={{ min: 0.5 }}
         gl={{ alpha: false, antialias: false }}
-        // camera={{ position: [0, 5, `${maxSize}`], fov: 55, near: 1, far: 20000 }}
-        camera={{ position: [20, 20, `${maxSize}`], fov: 40, near: 1, far: 2000 }}
+        camera={{ position: [0, 5, `${maxSize}`], fov: 55, near: 1, far: 20000 }}
+        // camera={{ position: [20, 20, `${maxSize}`], fov: 40, near: 1, far: 2000 }}
       >
-        {/* <color attach="background" args={['white']}/> */}
+
         <pointLight position={[20, 10, 20]} intensity={2} color={'#FFFBE1'}/>
         <pointLight position={[-200, 20, -200]} intensity={1} color={'white'} />
         <ambientLight intensity={0.2} />

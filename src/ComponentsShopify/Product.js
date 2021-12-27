@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Container, Col, Row } from "react-bootstrap"
 import { useShopify } from "../hooks"
+import Navbar from '../Components/Navigation/Navbar'
 
 export default (props) => {
 	const { products, fetchProduct } = useShopify()
@@ -15,6 +16,8 @@ export default (props) => {
 	}
 
 	return (
+		<div>
+		<Navbar />
 		<Container className="Product-wrapper">
 			{products &&
 				products.map((product, i) => {
@@ -50,7 +53,7 @@ export default (props) => {
 						<div 
 							className="Product" 
 							key={product.id + i}
-							onClick={(e) => handleClick(e, product.id)}
+							// onClick={(e) => handleClick(e, product.id)}
 						>
 							{image ? (
 									<div className="product-image">
@@ -83,5 +86,6 @@ export default (props) => {
 					)
 				})}
 		</Container>
+	</div>
 	)
 }

@@ -2,12 +2,21 @@ import React from 'react';
 import { Col, Row, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+import HamburgerMenu from './HamburgerMenu.js'
+
 import './navbar.css';
 
 const Navbar = () => {
     return (
         <Container fluid className="nav_master_container">
             <Row>
+                <Col
+                    className='d-block d-md-none'
+                    lg={3}
+                    xs={3}
+                >   
+                    <HamburgerMenu />
+                </Col>
                 <Col lg={12} className="d-xs-none d-none d-lg-block d-md-block">
                     <ul className="nav-container">
                         <li><Link className="nav_text" to="/">COURT</Link></li>
