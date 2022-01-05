@@ -7,12 +7,6 @@ import './hamburgerMenu.css';
 
   export default function MenuRight() {
     const [rightMenuVisible, setRightMenuVisible] = useState(false);
-    // const rightMenuAnimation = useSpring({
-    //   opacity: rightMenuVisible ? 1 : 0,
-    //   transform: rightMenuVisible ? `translateX(0)` : `translateX(200%)`
-    // }); 
-
-    console.log(rightMenuVisible)
 
     return (
       <div style={{ position: "fixed", zIndex: "9999" }}>
@@ -26,8 +20,6 @@ import './hamburgerMenu.css';
           style={{
             transform: `${rightMenuVisible ? "translateX(0)" : "translateX(100%)" }`,
             opacity: `${rightMenuVisible ? "1" : "0" }`,
-            // opacity: "1",
-            // transformX: "translateX(100%)",
             transition: "transform 0.5s"
           }}
           className="menu menu--right"

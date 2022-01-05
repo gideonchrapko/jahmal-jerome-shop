@@ -100,11 +100,9 @@ export default function Home() {
                 onPointerUp={() => window.appHistory.push("/commissary")}
               />
             </group>
-              {/* <a.group position={translate}> */}
               <a.group position={[-60, 3, -40]}>
                 <Text 
                   height={20} 
-                  // scale={0.12} 
                   scale={0.2}
                   color={expand ? "white" : "red"} receiveShadow castShadow 
                   onPointerUp={() => window.appHistory.push("/commissary")}
@@ -120,7 +118,6 @@ export default function Home() {
                   onPointerUp={() => window.appHistory.push("/slot-time")}
                 />
               </group>
-              {/* <a.group position={translate2}> */}
               <a.group position={[45, 3, -40]}>
                 <Text 
                   height={20} 
@@ -139,7 +136,6 @@ export default function Home() {
                   onPointerUp={() => window.appHistory.push("/law-library")}
                 />
               </group>
-              {/* <a.group position={translate1}> */}
               <a.group position={[0, 3, 0]}>
                 <Text 
                   height={20} 

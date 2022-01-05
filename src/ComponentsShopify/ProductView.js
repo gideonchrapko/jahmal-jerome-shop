@@ -84,7 +84,6 @@ export default (props) => {
 					className="prod-image-container"
 					lg={{ span: 5, offset: 1 }}
 					md={{ span: 10, offset: 1 }}
-					// style={{ backgroundColor: "green" }}
 				>
 					<div 
 						className="prod-img-div"

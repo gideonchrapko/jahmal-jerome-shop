@@ -460,6 +460,10 @@ input[type=number]::-webkit-inner-spin-button {
   border-radius: 20px;
   color: red;
   width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .prod-image-container {
@@ -541,11 +545,11 @@ input[type=number]::-webkit-inner-spin-button {
 .prodQuantity-container {
 	border: 2px solid  red;
 	border-radius: 10px;
-  width: 95%;
+  width: 90%;
   height: 60px;
-  left: 2.5%;
+  left: 5%;
   overflow: none;
-  /* position: relative; */
+  position: relative;
 }
 
 .prod-ul {
@@ -597,33 +601,12 @@ input[type=number]::-webkit-inner-spin-button {
 	float: left;
 }
 
-/* .prod-size-container-list {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-} */
-
-/* .prod-list-item {
-  float: left;
-} */
-
-/* .prod-list-item li a {
-  display: block;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-} */
-
 .prod-listitem-anchor {
 
   font-size: clamp(6pt, 6vw, 10pt);
   font-weight: 600;
   font-family: sans-serif;
-
   cursor: pointer;
-
-  /* height: 55px;
-  width: 20px; */
 }
 
 /* I might need to delete this  vvvvv */
@@ -689,7 +672,6 @@ input[type=number]::-webkit-inner-spin-button {
   padding-top: 10px;
 }
 
-
 /* I might need to delete this ^^^^  */
 
 .subhead_prod {
@@ -719,7 +701,8 @@ input[type=number]::-webkit-inner-spin-button {
   font-family: sans-serif;
   font-size: 25pt;
   font-weight: 700;
-  width: 100%;
+  width: 95%;
+  left: 2.55%;
   border-radius: 10px;
   border:none;
   top: 10px;
