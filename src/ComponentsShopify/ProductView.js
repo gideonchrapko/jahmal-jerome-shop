@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
-// import { useSpring } from 'react-spring'
 import { useShopify } from "../hooks";
 import Navbar from '../Components/Navigation/Navbar'
 

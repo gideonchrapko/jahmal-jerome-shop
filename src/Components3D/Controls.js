@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { extend, useThree, useFrame } from '@react-three/fiber'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
@@ -26,7 +26,7 @@ export default function Controls({ disable, ...props }) {
       enablePan={false}
       enableRotate={true}
       dampingFactor={0.1}
-      rotateSpeed={0.01}
+      rotateSpeed={0.1}
       minPolarAngle={Math.PI / 2.4}
       maxPolarAngle={Math.PI / 2.4}
       minAzimuthAngle={- Infinity}

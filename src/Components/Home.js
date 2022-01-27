@@ -41,7 +41,6 @@ function Ocean() {
   useFrame((state, delta) => (ref.current.material.uniforms.time.value += delta))
   return <water ref={ref} args={[geom, config]} rotation-x={-Math.PI / 2} />
 }
-
 function Effects() {
   const ref = useRef()
   useFrame((state) => {
@@ -61,9 +60,11 @@ export default function Home() {
   const [expand2, setExpand2] = useState(false);
   const [maxSize, setMaxSize] = useState()
 
+  const [toggle, setToggle] = useState(false)
+	console.log(toggle)
+
   useEffect(() => {
     const size = document.documentElement.clientWidth / 150
-
     if (size <= 6 ) {
       return setMaxSize(1000)
     } 
@@ -85,7 +86,6 @@ export default function Home() {
         camera={{ position: [0, 5, `${maxSize}`], fov: 55, near: 1, far: 20000 }}
         // camera={{ position: [20, 20, `${maxSize}`], fov: 40, near: 1, far: 2000 }}
       >
-
         <pointLight position={[20, 10, 20]} intensity={2} color={'#FFFBE1'}/>
         <pointLight position={[-200, 20, -200]} intensity={1} color={'white'} />
         <ambientLight intensity={0.2} />
@@ -98,6 +98,7 @@ export default function Home() {
             >
               <LPin 
                 onPointerUp={() => window.appHistory.push("/commissary")}
+                // onClick={() => setToggle(!toggle)}
               />
             </group>
               <a.group position={[-60, 3, -40]}>
@@ -106,6 +107,7 @@ export default function Home() {
                   scale={0.2}
                   color={expand ? "white" : "red"} receiveShadow castShadow 
                   onPointerUp={() => window.appHistory.push("/commissary")}
+                  // onClick={() => setToggle(!toggle)}
                   >
                   Commissary
                 </Text>
@@ -146,11 +148,11 @@ export default function Home() {
                   Law Library
                 </Text>
               </a.group>
-            <Effects />
-            <Controls />
+          <Effects />
+          <Controls />
         </Suspense>
         <Sky scale={10000} sunPosition={[500, 150, -1000]} turbidity={0.01} />
-        <OrbitControls />
+        {/* <OrbitControls /> */}
       </Canvas>
     </div>
   )

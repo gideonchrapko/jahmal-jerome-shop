@@ -31,6 +31,7 @@ export default function LPin({ position = [-55, 50, -46], ...props }) {
           position: [-55, 10, -46],
         })
       })
+      
   return (
     <a.group 
       position={animatedProps.hovered}

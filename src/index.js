@@ -13,7 +13,6 @@ import { createBrowserHistory } from "history";
 
 const rootElement = document.getElementById("root");
 const customHistory = createBrowserHistory({
-	// basename: config.urlBasename || ''
   })
 
 ReactDOM.render(
